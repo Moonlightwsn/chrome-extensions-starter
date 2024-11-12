@@ -1,4 +1,6 @@
 import path from "path"
+import { globSync } from "glob"
+import { fileURLToPath } from "url"
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import { crx } from "@crxjs/vite-plugin"
@@ -11,6 +13,22 @@ export default defineConfig({
     alias: {
       "~": path.resolve(__dirname),
       "@": path.resolve(__dirname, "./src"),
+    },
+  },
+  build: {
+    rollupOptions: {
+      input: Object.fromEntries(
+        globSync("src/Injection/**/*.ts").map((file) => [
+          path.relative(
+            "src",
+            file.slice(0, file.length - path.extname(file).length)
+          ),
+          fileURLToPath(new URL(file, import.meta.url)),
+        ])
+      ),
+      output: {
+        entryFileNames: "[name].js",
+      },
     },
   },
 })

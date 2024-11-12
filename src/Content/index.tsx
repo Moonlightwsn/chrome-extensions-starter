@@ -5,7 +5,7 @@ import viteLogo from "~/static/vite.svg"
 import createShadowRoot from "./utils/createShadowRoot"
 import styles from "./index.css?inline"
 
-import "./injection/index"
+import injectAllScript from "./utils/injectScript"
 
 const __DEV__ = process.env.NODE_ENV === "development"
 const extensionId = `${packageJson.name || "CRX Demo"}-content-root`
@@ -38,4 +38,6 @@ void (async () => {
     const styleElement = document.querySelector("[data-vite-dev-id]")!
     root.shadowRoot.insertBefore(styleElement, root.shadowRoot.firstChild)
   }
+
+  injectAllScript()
 })()

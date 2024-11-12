@@ -37,8 +37,9 @@ export default defineManifest(async (env) => {
     permissions: ["contextMenus"],
     web_accessible_resources: [
       {
-        resources: ["dev-declare-myself.js"],
-        matches: ["https://*.google.com/*"],
+        matches: ["<all_urls>"],
+        resources: ["**/*", "*"],
+        use_dynamic_url: false,
       },
     ],
   }
