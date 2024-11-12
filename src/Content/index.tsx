@@ -1,9 +1,11 @@
 import React from "react"
 import packageJson from "~/package.json"
-import viteLogo from "~/public/vite.svg"
+import viteLogo from "~/static/vite.svg"
 
 import createShadowRoot from "./utils/createShadowRoot"
 import styles from "./index.css?inline"
+
+import "./injection/index"
 
 const __DEV__ = process.env.NODE_ENV === "development"
 const extensionId = `${packageJson.name || "CRX Demo"}-content-root`
