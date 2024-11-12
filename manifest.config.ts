@@ -24,5 +24,10 @@ export default defineManifest(async (env) => {
     action: {
       default_popup: "index.html",
     },
+    background: {
+      service_worker: "src/Background/index.ts",
+      type: "module",
+    },
+    permissions: ["contextMenus"],
   }
 })
