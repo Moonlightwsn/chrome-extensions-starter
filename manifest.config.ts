@@ -24,6 +24,12 @@ export default defineManifest(async (env) => {
     action: {
       default_popup: "index.html",
     },
+    content_scripts: [
+      {
+        js: ["src/Content/index.tsx"],
+        matches: ["*://*/**"],
+      },
+    ],
     background: {
       service_worker: "src/Background/index.ts",
       type: "module",
