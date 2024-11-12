@@ -2,7 +2,7 @@ import React from "react"
 import packageJson from "~/package.json"
 import viteLogo from "~/public/vite.svg"
 
-import createShadowRoot from "./createShadowRoot"
+import createShadowRoot from "./utils/createShadowRoot"
 import styles from "./index.css?inline"
 
 const __DEV__ = process.env.NODE_ENV === "development"
