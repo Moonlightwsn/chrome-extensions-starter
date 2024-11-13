@@ -1,3 +1,5 @@
+const __DEV__ = process.env.NODE_ENV === "development"
+
 export const injectSingleScript = (scriptPath: string) => {
   const container = document.head || document.documentElement
   const ele = document.createElement("script")
@@ -8,8 +10,15 @@ export const injectSingleScript = (scriptPath: string) => {
   container.removeChild(ele)
 }
 
-const scripts = ["Injection/dev-declare-myself.js"]
+const devScripts: string[] = ["Injection/dev-declare-myself.js"]
+const scripts: string[] = []
 const injectAllScript = () => {
+  if (__DEV__) {
+    devScripts.forEach((scriptName) => {
+      injectSingleScript(scriptName)
+    })
+  }
+
   scripts.forEach((scriptName) => {
     injectSingleScript(scriptName)
   })

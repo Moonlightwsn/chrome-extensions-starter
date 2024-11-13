@@ -1,6 +1,6 @@
 import React from "react"
 import packageJson from "~/package.json"
-import viteLogo from "~/public/vite.svg"
+import ViteLogoSvg from "~/public/vite.svg?react"
 
 import createShadowRoot from "./utils/createShadowRoot"
 import styles from "./index.css?inline"
@@ -17,16 +17,12 @@ void (async () => {
     mode: __DEV__ ? "open" : "closed",
   })
 
-  const viteLogoUrl = __DEV__
-    ? chrome.runtime.getURL(viteLogo)
-    : chrome.runtime.getURL("vite.svg")
-
   const LogoBox = () => (
     <div
-      className="fixed right-4 bottom-4 h-12 w-12 rounded-full overflow-hidden cursor-pointer"
+      className="fixed right-4 bottom-4 rounded-full overflow-hidden cursor-pointer z-[1001]"
       title={extensionId}
     >
-      <img className="w-full h-full" src={viteLogoUrl} alt="vite-logo" />
+      <ViteLogoSvg className="text-5xl" />
     </div>
   )
 
