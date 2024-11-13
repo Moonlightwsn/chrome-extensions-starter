@@ -34,7 +34,10 @@ export default defineManifest(async (env) => {
       service_worker: "src/Background/index.ts",
       type: "module",
     },
-    permissions: ["contextMenus"],
+    permissions: ["contextMenus", "sidePanel"],
+    side_panel: {
+      default_path: "index.html",
+    },
     web_accessible_resources: [
       {
         matches: ["<all_urls>"],
