@@ -1,6 +1,6 @@
 import { useState } from "react"
-import reactLogo from "@/assets/react.svg"
-import viteLogo from "/vite.svg"
+import ReactLogoSvg from "@/assets/react.svg?react"
+import ViteLogoSvg from "~/public/vite.svg?react"
 import "./index.css"
 
 function PopupApp() {
@@ -10,28 +10,20 @@ function PopupApp() {
     <>
       <div>
         <a
-          className="inline-block"
+          className="inline-block p-[24px]"
           href="https://vite.dev"
           target="_blank"
           rel="noopener"
         >
-          <img
-            className="h-24 p-6 will-change-[filter] logo"
-            src={viteLogo}
-            alt="Vite logo"
-          />
+          <ViteLogoSvg className="text-5xl" />
         </a>
         <a
-          className="inline-block"
+          className="inline-block p-[24px]"
           href="https://react.dev"
           target="_blank"
           rel="noopener"
         >
-          <img
-            className="h-24 p-6 will-change-[filter] logo react"
-            src={reactLogo}
-            alt="React logo"
-          />
+          <ReactLogoSvg className="text-5xl logo react" />
         </a>
       </div>
       <h1>Vite + React</h1>

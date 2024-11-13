@@ -2,13 +2,14 @@ import path from "path"
 import { globSync } from "glob"
 import { fileURLToPath } from "url"
 import { defineConfig } from "vite"
+import svgr from "vite-plugin-svgr"
 import react from "@vitejs/plugin-react"
 import { crx } from "@crxjs/vite-plugin"
 import manifest from "./manifest.config"
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), crx({ manifest })],
+  plugins: [svgr(), react(), crx({ manifest })],
   resolve: {
     alias: {
       "~": path.resolve(__dirname),
